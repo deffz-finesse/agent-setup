@@ -1,0 +1,11 @@
+interface:
+  display_name: Naming Conventions
+  short_description: Choose precise names across languages and files
+  default_prompt: Use $naming-conventions to review these names against the repository, language, framework, and domain conventions.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

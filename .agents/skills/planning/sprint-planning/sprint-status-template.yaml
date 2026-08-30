@@ -1,0 +1,8 @@
+schema_version: '1.0'
+sprint_id: sprint-001
+title: Next implementation sprint
+goal: One short, coherent project outcome
+created_at: 'YYYY-MM-DDTHH:MM:SSZ'
+updated_at: 'YYYY-MM-DDTHH:MM:SSZ'
+slice_order:
+  - 000-first-atomic-slice

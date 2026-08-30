@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Documentation"
+  short_description: "Document code contracts without comment clutter"
+  default_prompt: "Use $code-documentation to review this code and add only the documentation maintainers need."

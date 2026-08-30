@@ -1,0 +1,51 @@
+# Test Architect workflow: testarch-automate
+name: testarch-automate
+# prettier-ignore
+description: 'Expand test automation coverage for codebase. Use when the user says "lets expand test coverage" or "I want to automate tests"'
+
+# Critical variables from config
+config_source: "{project-root}/_agent-workflows/_config/config.toml"
+run_dir: "{run_dir}"
+test_artifacts: "{run_dir}/05-testing"
+date: system-generated
+
+# Workflow components
+installed_path: "."
+instructions: "./instructions.md"
+validation: "./checklist.md"
+template: false
+
+# Variables and inputs
+variables:
+  # Execution mode and targeting
+  standalone_mode: true # Can work without workflow artifacts (true) or integrate with workflow (false)
+  coverage_target: "critical-paths" # critical-paths, comprehensive, selective
+
+  # Directory paths
+  test_dir: "{project-root}/tests" # Root test directory
+  source_dir: "{project-root}" # Source code directory (customize if needed, e.g., {project-root}/src or {project-root}/lib)
+  target_slug: "" # Required story, epic, or suite scope
+
+# Output configuration
+default_output_file: "{test_artifacts}/automation-{target_slug}-summary.md"
+
+# Required tools
+required_tools:
+  - read_file # Read source code, existing tests, workflow artifacts
+  - write_file # Create test files, fixtures, factories, summaries
+  - create_directory # Create test directories
+  - list_files # Discover features and existing tests
+  - search_repo # Find coverage gaps and patterns
+  - glob # Find test files and source files
+
+tags:
+  - qa
+  - automation
+  - test-architect
+  - regression
+  - coverage
+
+execution_hints:
+  interactive: false # Minimize prompts
+  autonomous: true # Proceed without user input unless blocked
+  iterative: true
